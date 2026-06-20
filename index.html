@@ -24,20 +24,16 @@
         #man-dang-nhap { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--mau-the); max-width: 420px; width: 100%; padding: 50px 30px; border-radius: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.08); text-align: center; border: 1px solid rgba(255,255,255,0.8); }
         #man-dang-nhap h1 { color: var(--mau-chinh); margin-bottom: 12px; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
         #man-dang-nhap p { color: var(--mau-chu-mo); font-size: 1rem; margin-bottom: 35px; }
-        
-        .nut-google { background: #4285F4; color: white; border: none; padding: 14px 28px; font-size: 1rem; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3); }
-        .nut-google:hover { background: #357ae8; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4); }
+        .nut-google { background: #4285F4; color: white; border: none; padding: 14px 28px; font-size: 1rem; border-radius: 12px; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3); }
 
         /* MÀN HÌNH CHÍNH */
-        #man-chinh { display: none; width: 100%; max-width: 1000px; height: 85vh; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: var(--bo-goc); box-shadow: var(--do-bong); overflow: hidden; border: 1px solid rgba(255,255,255,0.7); }
+        #man-chinh { display: none; width: 100%; max-width: 1100px; height: 85vh; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: var(--bo-goc); box-shadow: var(--do-bong); overflow: hidden; border: 1px solid rgba(255,255,255,0.7); }
         
         /* THANH ĐIỀU HƯỚNG TRÁI */
         .thanh-dieu-huong { width: 70px; background: rgba(255, 255, 255, 0.6); border-right: 1px solid var(--mau-vien); display: flex; flex-direction: column; align-items: center; padding: 25px 0; gap: 25px; }
         .nut-nav { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.4rem; transition: all 0.25s ease; color: #4b4b4b; }
-        .nut-nav:hover { background: rgba(0, 0, 0, 0.05); transform: scale(1.05); }
-        .nut-nav.kich-hoat { background: var(--mau-the); color: var(--mau-chinh); box-shadow: 0 4px 12px rgba(0,0,0,0.05); font-size: 1.5rem; }
-        .avatar-nav { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.25s ease; margin-top: auto; object-fit: cover; }
-        .avatar-nav:hover { transform: scale(1.1); border-color: var(--mau-chinh); }
+        .nut-nav.kich-hoat { background: var(--mau-the); color: var(--mau-chinh); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .avatar-nav { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; object-fit: cover; margin-top: auto; }
 
         /* VÙNG GIAO DIỆN */
         .vung-giao-dien { flex: 1; display: flex; height: 100%; overflow: hidden; }
@@ -46,92 +42,112 @@
 
         /* TAB CHAT */
         .cot-trai { width: 340px; border-right: 1px solid var(--mau-vien); display: flex; flex-direction: column; background: rgba(255,255,255,0.4); }
-        .thanh-dau-trai { padding: 20px 20px 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .thanh-dau-trai h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; }
+        .thanh-dau-trai { padding: 20px 20px 15px 20px; }
+        .thanh-dau-trai h2 { font-size: 1.6rem; font-weight: 800; }
         .o-tim-kiem { padding: 0 20px 15px 20px; }
-        .o-tim-kiem input { width: 100%; padding: 12px 16px; border-radius: 24px; border: 1px solid transparent; background: rgba(0, 0, 0, 0.04); outline: none; font-size: 0.95rem; transition: all 0.2s; }
-        .o-tim-kiem input:focus { background: var(--mau-the); border-color: rgba(0,132,255,0.3); box-shadow: 0 0 0 3px rgba(0,132,255,0.1); }
-        
+        .o-tim-kiem input { width: 100%; padding: 12px 16px; border-radius: 24px; border: none; background: rgba(0, 0, 0, 0.04); outline: none; }
         .danh-sach-phong { flex: 1; overflow-y: auto; padding: 0 8px; display: flex; flex-direction: column; gap: 2px; }
-        .item-phong { display: flex; align-items: center; gap: 14px; padding: 12px 14px; cursor: pointer; border-radius: 12px; transition: all 0.2s ease; position: relative; }
-        .item-phong:hover { background-color: rgba(0, 0, 0, 0.03); }
+        .item-phong { display: flex; align-items: center; gap: 14px; padding: 12px 14px; cursor: pointer; border-radius: 12px; }
         .item-phong.kich-hoat { background-color: rgba(0, 132, 255, 0.08); }
-        .item-phong.kich-hoat .ten-phong { color: var(--mau-chinh); }
-        .item-phong img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .item-phong img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
         .info-phong { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
-        .ten-phong { font-weight: 600; font-size: 0.98rem; color: var(--mau-chu); margin-bottom: 2px; }
-        .tin-cuoi { font-size: 0.88rem; color: var(--mau-chu-mo); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ten-phong { font-weight: 600; }
+        .tin-cuoi { font-size: 0.88rem; color: var(--mau-chu-mo); text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 
-        /* CỘT PHẢI CHAT */
         .cot-phai { flex: 1; display: flex; flex-direction: column; background: var(--mau-the); }
-        .thanh-dau-phai { height: 70px; padding: 0 24px; border-bottom: 1px solid var(--mau-vien); display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.8); }
-        .thanh-dau-phai img { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; object-fit: cover; transition: transform 0.2s; }
-        .thanh-dau-phai img:hover { transform: scale(1.05); }
-        .ten-dang-chat { font-weight: 700; font-size: 1.1rem; color: var(--mau-chu); }
-
+        .thanh-dau-phai { height: 70px; padding: 0 24px; border-bottom: 1px solid var(--mau-vien); display: flex; align-items: center; gap: 14px; }
+        .thanh-dau-phai img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        .ten-dang-chat { font-weight: 700; }
         .vung-tin-nhan { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #fafafa; }
         .cum-tin-nhan { display: flex; gap: 10px; max-width: 75%; align-items: flex-end; }
         .cum-tin-nhan.toi-gui { align-self: flex-end; flex-direction: row-reverse; }
-        .avatar-chat { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; object-fit: cover; }
-        .text-tin { padding: 10px 16px; border-radius: 20px; font-size: 0.96rem; line-height: 1.45; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+        .avatar-chat { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+        .text-tin { padding: 10px 16px; border-radius: 20px; font-size: 0.96rem; }
         .toi-gui .text-tin { background: var(--mau-chinh); color: white; border-bottom-right-radius: 4px; }
         .nguoi-khac .text-tin { background: var(--mau-the); color: var(--mau-chu); border-bottom-left-radius: 4px; border: 1px solid rgba(0,0,0,0.03); }
-        
-        .o-nhap-chat { padding: 16px 24px; display: flex; gap: 12px; border-top: 1px solid var(--mau-vien); background: var(--mau-the); align-items: center; }
-        .o-nhap-chat input { flex: 1; padding: 12px 18px; border-radius: 24px; border: none; background: var(--mau-nen); outline: none; font-size: 0.95rem; transition: background 0.2s; }
-        .o-nhap-chat input:focus { background: #f0f2f5; }
-        .o-nhap-chat button { background: transparent; border: none; color: var(--mau-chinh); font-weight: 700; cursor: pointer; font-size: 1rem; padding: 4px 8px; transition: color 0.2s; }
-        .o-nhap-chat button:hover { color: var(--mau-chinh-hover); }
+        .o-nhap-chat { padding: 16px 24px; display: flex; gap: 12px; border-top: 1px solid var(--mau-vien); }
+        .o-nhap-chat input { flex: 1; padding: 12px 18px; border-radius: 24px; border: none; background: var(--mau-nen); outline: none; }
+        .o-nhap-chat button { background: transparent; border: none; color: var(--mau-chinh); font-weight: 700; cursor: pointer; }
 
         /* TAB BẢNG TIN */
         #tab-feed { flex-direction: column; overflow-y: auto; padding: 24px; gap: 24px; background: var(--mau-nen); align-items: center; width: 100%; }
-        .khung-dang-bai { background: var(--mau-the); padding: 20px; border-radius: var(--bo-goc); width: 100%; max-width: 580px; box-shadow: var(--do-bong); border: 1px solid rgba(0,0,0,0.02); }
-        .khung-dang-bai textarea { width: 100%; height: 80px; border: none; resize: none; outline: none; font-size: 1.05rem; margin-bottom: 12px; color: var(--mau-chu); }
+        .khung-dang-bai { background: var(--mau-the); padding: 20px; border-radius: var(--bo-goc); width: 100%; max-width: 580px; box-shadow: var(--do-bong); }
+        .khung-dang-bai textarea { width: 100%; height: 80px; border: none; resize: none; outline: none; font-size: 1.05rem; }
         .thanh-chuc-nang-dang { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--mau-vien); padding-top: 14px; }
-        .nut-chon-anh { color: #45bd62; cursor: pointer; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; transition: background 0.2s; }
-        .nut-chon-anh:hover { background: #f2f9f3; }
-        .nut-dang { background: var(--mau-chinh); color: white; border: none; padding: 9px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 10px rgba(0,132,255,0.2); }
-        .nut-dang:hover { background: var(--mau-chinh-hover); }
-        
-        /* Vùng xem trước ảnh có nút hủy */
+        .nut-chon-anh { color: #45bd62; cursor: pointer; font-weight: 600; }
+        .nut-dang { background: var(--mau-chinh); color: white; border: none; padding: 9px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; }
         .khung-xem-truoc-anh { position: relative; display: inline-block; margin-top: 12px; max-width: 200px; display: none; }
-        .anh-xem-truoc-feed { max-height: 180px; border-radius: 10px; object-fit: cover; border: 1px solid var(--mau-vien); width: 100%; }
-        .nut-huy-anh-preview { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
-        .nut-huy-anh-preview:hover { background: rgba(0,0,0,0.8); }
-
+        .anh-xem-truoc-feed { max-height: 180px; border-radius: 10px; object-fit: cover; width: 100%; }
+        .nut-huy-anh-preview { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; }
         .danh-sach-bai-dang { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 580px; }
-        .bai-dang { background: var(--mau-the); padding: 20px; border-radius: var(--bo-goc); box-shadow: var(--do-bong); position: relative; border: 1px solid rgba(0,0,0,0.01); transition: transform 0.2s; }
+        .bai-dang { background: var(--mau-the); padding: 20px; border-radius: var(--bo-goc); box-shadow: var(--do-bong); position: relative; }
         .header-bai-dang { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-        .header-bai-dang img { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; object-fit: cover; }
-        .ten-nguoi-dang-bai { font-weight: 700; font-size: 1rem; color: var(--mau-chu); }
-        .time-dang-bai { font-size: 0.8rem; color: var(--mau-chu-mo); margin-top: 2px; }
-        .text-bai-dang { font-size: 1.05rem; line-height: 1.5; margin-bottom: 12px; color: var(--mau-chu); white-space: pre-wrap; }
-        .anh-bai-dang { width: 100%; border-radius: 12px; max-height: 450px; object-fit: cover; border: 1px solid rgba(0,0,0,0.03); }
-        
-        /* ICON NÚT XÓA BÀI ĐĂNG */
-        .nut-xoa-bai { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: #f02849; font-size: 1.1rem; cursor: pointer; display: none; padding: 6px; border-radius: 50%; transition: all 0.2s; width: 32px; height: 32px; align-items: center; justify-content: center; }
-        .nut-xoa-bai:hover { background: #ffebe6; transform: scale(1.05); }
+        .header-bai-dang img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+        .ten-nguoi-dang-bai { font-weight: 700; }
+        .time-dang-bai { font-size: 0.8rem; color: var(--mau-chu-mo); }
+        .text-bai-dang { font-size: 1.05rem; line-height: 1.5; margin-bottom: 12px; white-space: pre-wrap; }
+        .anh-bai-dang { width: 100%; border-radius: 12px; max-height: 450px; object-fit: cover; }
+        .nut-xoa-bai { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: #f02849; font-size: 1.1rem; cursor: pointer; display: none; }
         .bai-dang:hover .nut-xoa-bai { display: flex; }
 
-        /* MODAL XEM TRANG CÁ NHÂN (TCN) */
-        #modal-tcn { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
-        .khung-tcn { background: var(--mau-the); padding: 30px; border-radius: 24px; width: 100%; max-width: 600px; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.8); }
-        .user-tcn-info { text-align: center; border-bottom: 1px solid var(--mau-vien); padding-bottom: 20px; margin-bottom: 20px; }
-        .user-tcn-info img { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--mau-the); box-shadow: 0 4px 14px rgba(0,132,255,0.3); object-fit: cover; }
-        .user-tcn-info h3 { margin-top: 14px; font-size: 1.4rem; font-weight: 800; }
-        .input-biet-danh { padding: 10px 16px; width: 70%; border: 1px solid var(--mau-vien); border-radius: 10px; text-align: center; margin-top: 12px; display: none; font-size: 0.95rem; outline: none; transition: border 0.2s; }
-        .input-biet-danh:focus { border-color: var(--mau-chinh); }
-        .nut-hanh-dong-tcn { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
-        .nut-hanh-dong-tcn button { padding: 10px 22px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+        /* TAB GHI CHÚ & TRÌNH TÌM KIẾM NHẠC */
+        #tab-notes { flex-direction: column; overflow-y: auto; padding: 24px; background: var(--mau-nen); width: 100%; }
+        .giao-dien-notes { width: 100%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+        .khung-tao-note { background: var(--mau-the); padding: 18px; border-radius: 14px; box-shadow: var(--do-bong); width: 100%; max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; position: relative; }
+        .khung-tao-note input, .khung-tao-note textarea { border: none; outline: none; width: 100%; font-size: 1rem; resize: none; }
+        .khung-tao-note input { font-weight: 700; font-size: 1.1rem; }
         
-        .nut-dong-tcn { position: absolute; top: 20px; right: 20px; background: var(--mau-nen); border-radius: 50%; width: 34px; height: 34px; border: none; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; color: var(--mau-chu-mo); transition: background 0.2s; }
-        .nut-dong-tcn:hover { background: var(--mau-vien); color: var(--mau-chu); }
+        /* Bộ tìm kiếm nhạc tích hợp */
+        .vung-tim-nhan-music { background: #f1f3f4; padding: 8px 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+        .vung-tim-nhan-music input { background: transparent; font-weight: normal; font-size: 0.9rem; }
+        .ket-qua-music-dropdown { max-height: 150px; overflow-y: auto; background: white; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: none; flex-direction: column; }
+        .item-nhac-tuyen-chon { padding: 8px 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f1f1f1; }
+        .item-nhac-tuyen-chon:hover { background: #f0f7ff; }
+        .item-nhac-tuyen-chon img { width: 30px; height: 30px; border-radius: 4px; object-fit: cover; }
+        
+        /* Widget nhạc đã chọn */
+        .widget-nhac-da-chon { display: none; align-items: center; gap: 12px; background: #e8f4fd; padding: 8px 12px; border-radius: 10px; margin-top: 5px; border: 1px solid #b3d7ff; }
+        .widget-nhac-da-chon img { width: 36px; height: 36px; border-radius: 50%; animation: quayTronVong 4s linear infinite; animation-play-state: paused; }
+        .widget-nhac-da-chon.playing img { animation-play-state: running; }
+        .thong-tin-bai-hat-chon { flex: 1; display: flex; flex-direction: column; font-size: 0.85rem; }
+        .nut-xoa-nhac-chon { background: transparent; border: none; color: #ff4d4d; cursor: pointer; font-weight: bold; }
 
-        /* THANH CUỘN ĐẸP */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.1); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.2); }
+        @keyframes quayTronVong { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .thanh-chuc-nang-note { display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
+        .o-chon-mau-note { display: flex; gap: 6px; }
+        .cham-mau { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; }
+        .cham-mau.dang-chon { border-color: #555; }
+        
+        /* Danh sách lưới các ghi chú */
+        .luoi-ghi-chu { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; width: 100%; margin-top: 10px; }
+        .the-ghi-chu { padding: 18px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); position: relative; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(0,0,0,0.05); min-height: 120px; }
+        .tieu-de-note { font-weight: 700; font-size: 1.05rem; padding-right: 24px; }
+        .noi-dung-note { font-size: 0.95rem; line-height: 1.45; white-space: pre-wrap; }
+        
+        /* Bong bóng nhạc trên card ghi chú giống Messenger */
+        .messenger-music-bubble { display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.05); padding: 8px 12px; border-radius: 20px; margin-top: 5px; cursor: pointer; border: 1px solid rgba(0,0,0,0.02); transition: background 0.2s; }
+        .messenger-music-bubble:hover { background: rgba(0,0,0,0.09); }
+        .icon-dia-nhac { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; animation: quayTronVong 5s linear infinite; animation-play-state: paused; border: 1px solid white; }
+        .messenger-music-bubble.dang-phat .icon-dia-nhac { animation-play-state: running; }
+        .chi-tiet-music-bubble { display: flex; flex-direction: column; font-size: 0.8rem; overflow: hidden; }
+        .ten-bai-bubble { font-weight: bold; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+        .ca-si-bubble { size: 0.75rem; color: #555; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+        .nut-play-bubble { font-size: 0.9rem; margin-left: auto; margin-right: 2px; }
+
+        .nguoi-tao-note { font-size: 0.78rem; color: var(--mau-chu-mo); margin-top: auto; padding-top: 8px; border-top: 1px dashed rgba(0,0,0,0.08); }
+        .nut-xoa-note { position: absolute; top: 14px; right: 14px; background: transparent; border: none; color: #f02849; cursor: pointer; opacity: 0; }
+        .the-ghi-chu:hover .nut-xoa-note { opacity: 1; }
+
+        /* MODAL XEM TRANG CÁ NHÂN */
+        #modal-tcn { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
+        .khung-tcn { background: var(--mau-the); padding: 30px; border-radius: 24px; width: 100%; max-width: 600px; max-height: 85vh; overflow-y: auto; position: relative; }
+        .user-tcn-info { text-align: center; border-bottom: 1px solid var(--mau-vien); padding-bottom: 20px; margin-bottom: 20px; }
+        .user-tcn-info img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; }
+        .input-biet-danh { padding: 10px 16px; width: 70%; border: 1px solid var(--mau-vien); border-radius: 10px; text-align: center; margin-top: 12px; display: none; }
+        .nut-hanh-dong-tcn { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+        .nut-hanh-dong-tcn button { padding: 10px 22px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
+        .nut-dong-tcn { position: absolute; top: 20px; right: 20px; background: var(--mau-nen); border-radius: 50%; width: 34px; height: 34px; border: none; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
@@ -139,24 +155,22 @@
     <div id="man-dang-nhap">
         <h1>Our Little World ❤️</h1>
         <p>Không gian bí mật dành cho nhóm tụi mình</p>
-        <button class="nut-google" id="nut-dang-nhap-gg">
-            <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#fff" d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.8 2.72v2.26h2.92c1.71-1.57 2.68-3.89 2.68-6.61z"/><path fill="#fff" d="M9 18c2.43 0 4.47-.8 5.96-2.19l-2.92-2.26c-.8.54-1.83.87-3.04.87-2.34 0-4.33-1.57-5.03-3.68H.95v2.33C2.43 15.98 5.46 18 9 18z"/><path fill="#fff" d="M3.97 10.74c-.18-.54-.28-1.12-.28-1.74s.1-1.2.28-1.74V4.93H.95C.35 6.13 0 7.52 0 9s.35 2.87.95 4.07l3.02-2.33z"/><path fill="#fff" d="M9 3.58c1.32 0 2.5.45 3.44 1.35L15 2.3C13.46.89 11.43 0 9 0 5.46 0 2.43 2.02.95 4.93l3.02 2.33c.7-2.11 2.69-3.68 5.03-3.68z"/></svg>
-            Kết nối bằng Google
-        </button>
+        <button class="nut-google" id="nut-dang-nhap-gg">Kết nối bằng Google</button>
     </div>
 
     <div id="man-chinh">
         <div class="thanh-dieu-huong">
             <div class="nut-nav kich-hoat" onclick="doiTab('chat', this)" title="Trò chuyện">💬</div>
             <div class="nut-nav" onclick="doiTab('feed', this)" title="Bảng tin">📰</div>
-            <img id="avatar-user-goc" class="avatar-nav" src="" onclick="xemTCN('chinh_toi')" title="Trang cá nhân của tôi">
+            <div class="nut-nav" onclick="doiTab('notes', this)" title="Ghi chú & Nhạc">📝</div>
+            <img id="avatar-user-goc" class="avatar-nav" src="" onclick="xemTCN('chinh_toi')" title="Trang cá nhân">
         </div>
 
         <div class="vung-giao-dien">
             <div id="tab-chat" class="tab-content kich-hoat">
                 <div class="cot-trai">
                     <div class="thanh-dau-trai"><h2>Đoạn chat</h2></div>
-                    <div class="o-tim-kiem"><input type="text" placeholder="Tìm kiếm trên Messenger"></div>
+                    <div class="o-tim-kiem"><input type="text" placeholder="Tìm kiếm..."></div>
                     <div class="danh-sach-phong" id="vung-danh-sach-u"></div>
                 </div>
                 <div class="cot-phai">
@@ -173,15 +187,13 @@
             </div>
 
             <div id="tab-feed" class="tab-content">
-                <div id="tab-bang-tin">
+                <div>
                     <div class="khung-dang-bai">
                         <textarea id="text-bai-viet" placeholder="Bạn đang nghĩ gì thế?"></textarea>
-                        
                         <div class="khung-xem-truoc-anh" id="vung-preview-feed">
                             <button class="nut-huy-anh-preview" onclick="clearAnhDaChon()">✕</button>
                             <img id="anh-feed-xem-truoc" class="anh-xem-truoc-feed">
                         </div>
-
                         <div class="thanh-chuc-nang-dang">
                             <label for="file-anh-feed" class="nut-chon-anh">📷 Thêm hình ảnh</label>
                             <input type="file" id="file-anh-feed" accept="image/*" style="display:none;" onchange="xemTruocAnhFeed(event)">
@@ -191,6 +203,41 @@
                     <div class="danh-sach-bai-dang" id="vung-danh-sach-bai-dang"></div>
                 </div>
             </div>
+
+            <div id="tab-notes" class="tab-content">
+                <div class="giao-dien-notes">
+                    <div class="khung-tao-note" id="khung-tao-note-element">
+                        <input type="text" id="note-tieu-de" placeholder="Tiêu đề ghi chú...">
+                        <textarea id="note-noi-dung" placeholder="Nội dung ghi chú của bạn..."></textarea>
+                        
+                        <div class="vung-tim-nhan-music">
+                            <input type="text" id="o-tim-kiem-nhac" placeholder="🔍 Gõ tên bài hát để chèn nhạc nền..." oninput="timKiemNhacOnline()">
+                            <div class="ket-qua-music-dropdown" id="dropdown-ket-qua-nhac"></div>
+                        </div>
+
+                        <div class="widget-nhac-da-chon" id="widget-bai-hat-da-chon">
+                            <img id="anh-nhac-chon" src="">
+                            <div class="thong-tin-bai-hat-chon">
+                                <span id="ten-nhac-chon" style="font-weight:bold;">T tên bài</span>
+                                <span id="ca-si-nhac-chon" style="color:#555;">Ca sĩ</span>
+                            </div>
+                            <button class="nut-xoa-nhac-chon" onclick="goBoNhacDaChon()">Gỡ bỏ ✕</button>
+                        </div>
+
+                        <div class="thanh-chuc-nang-note">
+                            <div class="o-chon-mau-note">
+                                <div class="cham-mau dang-chon" style="background:#ffffff" onclick="chonMauNote('#ffffff', this)"></div>
+                                <div class="cham-mau" style="background:#fff4cc" onclick="chonMauNote('#fff4cc', this)"></div>
+                                <div class="cham-mau" style="background:#e8eaed" onclick="chonMauNote('#e8eaed', this)"></div>
+                                <div class="cham-mau" style="background:#e6f4ea" onclick="chonMauNote('#e6f4ea', this)"></div>
+                                <div class="cham-mau" style="background:#fce8e6" onclick="chonMauNote('#fce8e6', this)"></div>
+                            </div>
+                            <button class="nut-dang" onclick="luuGhiChuMoi()">Lưu lại</button>
+                        </div>
+                    </div>
+                    <div class="luoi-ghi-chu" id="vung-luoi-ghi-chu"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -198,19 +245,17 @@
         <div class="khung-tcn">
             <button class="nut-dong-tcn" onclick="dongModalTCN()">✕</button>
             <div class="user-tcn-info">
-                <img id="tcn-avatar" src="" alt="">
+                <img id="tcn-avatar" src="">
                 <h3 id="tcn-ten">Tên người dùng</h3>
                 <input type="text" id="tcn-input-nickname" class="input-biet-danh">
                 <div class="nut-hanh-dong-tcn" id="vung-nut-tcn"></div>
             </div>
-            <h4 style="margin-bottom: 14px; font-weight: 700;">Bài viết đã chia sẻ:</h4>
-            <div id="vung-bai-dang-ca-nhan" class="danh-sach-bai-dang"></div>
         </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
         import { getDatabase, ref, push, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
         const cấu_hình_firebase = {
@@ -232,8 +277,13 @@
         window.idNguoiNhanHienTai = "nhom_chung";
         let mapThanhVien = {};
         let chuoiAnhBase64Feed = "";
-
-        window.auth = auth;
+        let mauGhiChuDuocChon = "#ffffff";
+        
+        // Object chứa bài hát đang được chọn để gắn vào Note mới
+        let thongTinNhacDinhKem = null;
+        // Trình phát nhạc toàn cục để xử lý dừng/phát nhạc
+        let audioHienTai = null;
+        let theBubbleDangPhat = null;
 
         document.getElementById('nut-dang-nhap-gg').addEventListener('click', () => {
             signInWithPopup(auth, provider).catch(l => alert("Lỗi: " + l.message));
@@ -249,6 +299,7 @@
                 langNgheThanhVien();
                 langNgheTinNhanChat();
                 langNgheToanBoBaiDang();
+                langNgheGhiChu();
             } else {
                 document.getElementById('man-dang-nhap').style.display = 'flex';
                 document.getElementById('man-chinh').style.display = 'none';
@@ -260,33 +311,190 @@
             document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('kich-hoat'));
             el.classList.add('kich-hoat');
             document.getElementById('tab-' + tabName).classList.add('kich-hoat');
+            if (audioHienTai) audioHienTai.pause(); // Đổi tab thì dừng nhạc
         };
 
+        /* LOGIC TÌM KIẾM NHẠC TỰ ĐỘNG (Dùng kho API Mở Không Giới Hạn) */
+        let debounceTimer;
+        window.timKiemNhacOnline = function() {
+            clearTimeout(debounceTimer);
+            const tuKhoa = document.getElementById('o-tim-kiem-nhac').value.trim();
+            const dropdown = document.getElementById('dropdown-ket-qua-nhac');
+            if (!tuKhoa) { dropdown.style.display = 'none'; return; }
+
+            debounceTimer = setTimeout(() => {
+                fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(tuKhoa)}&media=music&limit=5`)
+                    .then(res => res.json())
+                    .then(data => {
+                        dropdown.innerHTML = '';
+                        if(data.results && data.results.length > 0) {
+                            dropdown.style.display = 'flex';
+                            data.results.forEach(song => {
+                                const div = document.createElement('div');
+                                div.className = 'item-nhac-tuyen-chon';
+                                div.innerHTML = `
+                                    <img src="${song.artworkUrl60}">
+                                    <div>
+                                        <b style="display:block;">${song.trackName}</b>
+                                        <small style="color:#65676B;">${song.artistName}</small>
+                                    </div>
+                                `;
+                                div.onclick = () => chonBaiHatDinhKem(song.trackName, song.artistName, song.artworkUrl100, song.previewUrl);
+                                dropdown.appendChild(div);
+                            });
+                        } else {
+                            dropdown.style.display = 'none';
+                        }
+                    }).catch(() => dropdown.style.display = 'none');
+            }, 400);
+        };
+
+        function chonBaiHatDinhKem(ten, caSi, anh, urlPreview) {
+            thongTinNhacDinhKem = { ten, caSi, anh, urlPreview };
+            document.getElementById('dropdown-ket-qua-nhac').style.display = 'none';
+            document.getElementById('o-tim-kiem-nhac').value = '';
+            
+            // Hiển thị lên widget preview ở khung tạo Note
+            document.getElementById('anh-nhac-chon').src = anh;
+            document.getElementById('ten-nhac-chon').innerText = ten;
+            document.getElementById('ca-si-nhac-chon').innerText = caSi;
+            document.getElementById('widget-bai-hat-da-chon').style.display = 'flex';
+        }
+
+        window.goBoNhacDaChon = function() {
+            thongTinNhacDinhKem = null;
+            document.getElementById('widget-bai-hat-da-chon').style.display = 'none';
+        };
+
+        /* LƯU GHI CHÚ */
+        window.chonMauNote = function(mau, el) {
+            mauGhiChuDuocChon = mau;
+            document.getElementById('khung-tao-note-element').style.backgroundColor = mau;
+            document.querySelectorAll('.cham-mau').forEach(m => m.classList.remove('dang-chon'));
+            el.classList.add('dang-chon');
+        };
+
+        window.luuGhiChuMoi = function() {
+            const td = document.getElementById('note-tieu-de').value.trim();
+            const nd = document.getElementById('note-noi-dung').value.trim();
+            if(!td && !nd && !thongTinNhacDinhKem) return alert("Vui lòng nhập nội dung hoặc chọn bài nhạc!");
+
+            set(push(ref(db, 'notes')), {
+                uid: taiKhoanHienTai.uid,
+                title: td,
+                content: nd,
+                color: mauGhiChuDuocChon,
+                music: thongTinNhacDinhKem || null, // Lưu cục data nhạc vào Firebase
+                timestamp: Date.now()
+            });
+
+            // Reset form
+            document.getElementById('note-tieu-de').value = '';
+            document.getElementById('note-noi-dung').value = '';
+            goBoNhacDaChon();
+            mauGhiChuDuocChon = "#ffffff";
+            document.getElementById('khung-tao-note-element').style.backgroundColor = "#ffffff";
+        };
+
+        /* LẮNG NGHE GHI CHÚ VÀ PHÁT NHẠC */
+        function langNgheGhiChu() {
+            onValue(ref(db, 'notes'), (snapshot) => {
+                const vungNote = document.getElementById('vung-luoi-ghi-chu');
+                vungNote.innerHTML = '';
+                const data = snapshot.val() || {};
+
+                Object.keys(data).reverse().forEach(k => {
+                    const n = data[k];
+                    const u = mapThanhVien[n.uid] || { displayName: "Thành viên" };
+                    const nutXoaAn = (n.uid === taiKhoanHienTai.uid) ? `<button class="nut-xoa-note" onclick="xoaGhiChu('${k}')">🗑️</button>` : '';
+                    
+                    // Xử lý sinh giao diện bong bóng nhạc nếu Note có nhạc đính kèm
+                    let musicBubbleHtml = "";
+                    if (n.music) {
+                        musicBubbleHtml = `
+                            <div class="messenger-music-bubble" onclick="xuLyPhatAudioKhangGia('${n.music.urlPreview}', this)">
+                                <img class="icon-dia-nhac" src="${n.music.anh}">
+                                <div class="chi-tiet-music-bubble">
+                                    <span class="ten-bai-bubble">${n.music.ten}</span>
+                                    <span class="ca-si-bubble">${n.music.caSi}</span>
+                                </div>
+                                <div class="nut-play-bubble">▶️</div>
+                            </div>
+                        `;
+                    }
+
+                    vungNote.insertAdjacentHTML('beforeend', `
+                        <div class="the-ghi-chu" style="background-color: ${n.color || '#ffffff'}">
+                            ${nutXoaAn}
+                            ${n.title ? `<div class="tieu-de-note">${n.title}</div>` : ''}
+                            ${n.content ? `<div class="noi-dung-note">${n.content}</div>` : ''}
+                            ${musicBubbleHtml}
+                            <div class="nguoi-tao-note">Được viết bởi: <b>${u.displayName}</b></div>
+                        </div>
+                    `);
+                });
+            });
+        }
+
+        // Hàm điều khiển phát nhạc toàn hệ thống (Click bài này dừng bài kia)
+        window.xuLyPhatAudioKhangGia = function(url, element) {
+            if (audioHienTai && audioHienTai.src === url) {
+                if (!audioHienTai.paused) {
+                    audioHienTai.pause();
+                    element.classList.remove('dang-phat');
+                    element.querySelector('.nut-play-bubble').innerText = '▶️';
+                } else {
+                    audioHienTai.play();
+                    element.classList.add('dang-phat');
+                    element.querySelector('.nut-play-bubble').innerText = '⏸️';
+                }
+            } else {
+                if (audioHienTai) {
+                    audioHienTai.pause();
+                    if (theBubbleDangPhat) {
+                        theBubbleDangPhat.classList.remove('dang-phat');
+                        theBubbleDangPhat.querySelector('.nut-play-bubble').innerText = '▶️';
+                    }
+                }
+                audioHienTai = new Audio(url);
+                theBubbleDangPhat = element;
+                audioHienTai.play();
+                element.classList.add('dang-phat');
+                element.querySelector('.nut-play-bubble').innerText = '⏸️';
+
+                audioHienTai.onended = () => {
+                    element.classList.remove('dang-phat');
+                    element.querySelector('.nut-play-bubble').innerText = '▶️';
+                };
+            }
+        };
+
+        window.xoaGhiChu = function(idNote) {
+            if(confirm("Bạn có chắc muốn xóa ghi chu này?")) remove(ref(db, 'notes/' + idNote));
+        };
+
+        /* CÁC CHỨC NĂNG CƠ BẢN KHÁC (GIỮ NGUYÊN) */
         function langNgheThanhVien() {
             onValue(ref(db, 'users'), (snapshot) => {
                 mapThanhVien = snapshot.val() || {};
                 const vungList = document.getElementById('vung-danh-sach-u');
                 let html = `<div class="item-phong ${idNguoiNhanHienTai === 'nhom_chung' ? 'kich-hoat' : ''}" onclick="chuyenPhong('nhom_chung', 'Kênh Nhóm Chung 👥', 'https://cdn-icons-png.flaticon.com/512/615/615075.png')">
                     <img src="https://cdn-icons-png.flaticon.com/512/615/615075.png"><div class="info-phong"><span class="ten-phong">Kênh Nhóm Chung 👥</span><span class="tin-cuoi">Trò chuyện nhóm tụi mình...</span></div></div>`;
-                
                 Object.keys(mapThanhVien).forEach(uid => {
                     if(uid === taiKhoanHienTai.uid) return;
                     const u = mapThanhVien[uid];
                     html += `<div class="item-phong ${idNguoiNhanHienTai === uid ? 'kich-hoat' : ''}" onclick="chuyenPhong('${u.uid}', '${u.displayName}', '${u.photoURL}')">
-                        <img src="${u.photoURL}"><div class="info-phong"><span class="ten-phong">${u.displayName}</span><span class="tin-cuoi">Nhấp xem trang cá nhân & chat riêng...</span></div></div>`;
+                        <img src="${u.photoURL}"><div class="info-phong"><span class="ten-phong">${u.displayName}</span><span class="tin-cuoi">Xem trang cá nhân & chat riêng...</span></div></div>`;
                 });
                 vungList.innerHTML = html;
             });
         }
-
         window.chuyenPhong = function(id, ten, avt) {
             idNguoiNhanHienTai = id;
             document.getElementById('ten-dang-chat').innerText = ten;
             document.getElementById('avatar-dang-chat').src = avt;
-            langNgheThanhVien();
-            langNgheTinNhanChat();
+            langNgheThanhVien(); langNgheTinNhanChat();
         };
-
         window.guiTinChat = function() {
             const txt = document.getElementById('nhap-tin-chat').value.trim();
             if(!txt) return;
@@ -297,7 +505,6 @@
             set(push(ref(db, p)), { senderUid: taiKhoanHienTai.uid, text: txt, timestamp: Date.now() });
             document.getElementById('nhap-tin-chat').value = '';
         };
-
         function langNgheTinNhanChat() {
             let p = 'chats/nhom_chung';
             if (idNguoiNhanHienTai !== 'nhom_chung') {
@@ -305,11 +512,9 @@
             }
             const vh = document.getElementById('vung-noi-dung-tin-nhan');
             onValue(ref(db, p), (s) => {
-                vh.innerHTML = '';
-                const data = s.val() || {};
+                vh.innerHTML = ''; const data = s.val() || {};
                 Object.keys(data).forEach(k => {
-                    const c = data[k];
-                    const laToi = c.senderUid === taiKhoanHienTai.uid;
+                    const c = data[k]; const laToi = c.senderUid === taiKhoanHienTai.uid;
                     const u = mapThanhVien[c.senderUid] || { displayName: "Thành viên", photoURL: "" };
                     vh.insertAdjacentHTML('beforeend', `<div class="cum-tin-nhan ${laToi ? 'toi-gui' : 'nguoi-khac'}">
                         <img class="avatar-chat" src="${u.photoURL}" onclick="xemTCN('${c.senderUid}')">
@@ -318,11 +523,8 @@
                 vh.scrollTop = vh.scrollHeight;
             });
         }
-
-        /* XỬ LÝ BẢNG TIN */
         window.xemTruocAnhFeed = function(e) {
-            const f = e.target.files[0];
-            if(!f) return;
+            const f = e.target.files[0]; if(!f) return;
             const r = new FileReader();
             r.onload = function(evt) {
                 chuoiAnhBase64Feed = evt.target.result;
@@ -331,107 +533,54 @@
             };
             r.readAsDataURL(f);
         };
-
-        // Hàm xóa ảnh đã chọn khi bấm nút hủy preview
         window.clearAnhDaChon = function() {
-            chuoiAnhBase64Feed = "";
-            document.getElementById('file-anh-feed').value = ""; // Reset file input quan trọng ở đây!
+            chuoiAnhBase64Feed = ""; document.getElementById('file-anh-feed').value = "";
             document.getElementById('vung-preview-feed').style.display = 'none';
         };
-
         window.dangBaiLenFeed = function() {
             const stt = document.getElementById('text-bai-viet').value.trim();
             if(!stt && !chuoiAnhBase64Feed) return alert("Vui lòng viết gì đó hoặc chọn ảnh!");
-            
             set(push(ref(db, 'feeds')), { uid: taiKhoanHienTai.uid, text: stt, img: chuoiAnhBase64Feed, timestamp: Date.now() });
-            
-            // Xóa nội dung cũ sau khi đăng thành công
-            document.getElementById('text-bai-viet').value = '';
-            clearAnhDaChon(); // Reset hoàn toàn vùng chọn ảnh để đăng ảnh mới không bị kẹt
+            document.getElementById('text-bai-viet').value = ''; clearAnhDaChon();
         };
-
+        function langNgheToanBoBaiDang() {
+            onValue(ref(db, 'feeds'), (s) => {
+                const vf = document.getElementById('vung-danh-sach-bai-dang'); vf.innerHTML = '';
+                const data = s.val() || {};
+                Object.keys(data).reverse().forEach(k => { vf.insertAdjacentHTML('beforeend', taoHtmlBaiDang(k, data[k])); });
+            });
+        }
         function taoHtmlBaiDang(idBai, b) {
             const u = mapThanhVien[b.uid] || { displayName: "Thành viên", photoURL: "https://via.placeholder.com/38" };
             const time = new Date(b.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(b.timestamp).toLocaleDateString();
             const hienThiNutXoa = (b.uid === taiKhoanHienTai.uid) ? 'style="display: flex;"' : '';
-
             return `<div class="bai-dang" id="post-${idBai}">
-                <button class="nut-xoa-bai" ${hienThiNutXoa} onclick="xoaBaiViet('${idBai}')" title="Xóa bài viết">🗑️</button>
-                <div class="header-bai-dang">
-                    <img src="${u.photoURL}" onclick="xemTCN('${b.uid}')">
-                    <div><div class="ten-nguoi-dang-bai">${u.displayName}</div><div class="time-dang-bai">${time}</div></div>
-                </div>
-                ${b.text ? `<div class="text-bai-dang">${b.text}</div>` : ''}
-                ${b.img ? `<img class="anh-bai-dang" src="${b.img}">` : ''}
+                <button class="nut-xoa-bai" ${hienThiNutXoa} onclick="xoaBaiViet('${idBai}')">🗑️</button>
+                <div class="header-bai-dang"><img src="${u.photoURL}" onclick="xemTCN('${b.uid}')"><div><div class="ten-nguoi-dang-bai">${u.displayName}</div><div class="time-dang-bai">${time}</div></div></div>
+                ${b.text ? `<div class="text-bai-dang">${b.text}</div>` : ''} ${b.img ? `<img class="anh-bai-dang" src="${b.img}">` : ''}
             </div>`;
         }
-
-        window.xoaBaiViet = function(idBai) {
-            if(confirm("Bạn muốn xóa bài đăng này đúng không?")) {
-                remove(ref(db, 'feeds/' + idBai)).catch(l => alert("Lỗi: " + l.message));
-            }
-        };
-
-        function langNgheToanBoBaiDang() {
-            onValue(ref(db, 'feeds'), (s) => {
-                const vf = document.getElementById('vung-danh-sach-bai-dang');
-                vf.innerHTML = '';
-                const data = s.val() || {};
-                Object.keys(data).reverse().forEach(k => {
-                    vf.insertAdjacentHTML('beforeend', taoHtmlBaiDang(k, data[k]));
-                });
-            });
-        }
-
-        /* XỬ LÝ TRANG CÁ NHÂN (TCN) */
+        window.xoaBaiViet = function(idBai) { if(confirm("Bạn muốn xóa bài đăng này?")) remove(ref(db, 'feeds/' + idBai)); };
         window.xemTCN = function(uid) {
             if(uid === 'chinh_toi' || uid === taiKhoanHienTai.uid) uid = taiKhoanHienTai.uid;
-            if(uid === 'nhom_chung') return;
-
-            const targetUser = mapThanhVien[uid];
-            if(!targetUser) return;
-
+            const targetUser = mapThanhVien[uid]; if(!targetUser) return;
             document.getElementById('modal-tcn').style.display = 'flex';
             document.getElementById('tcn-avatar').src = targetUser.photoURL;
             document.getElementById('tcn-ten').innerText = targetUser.displayName;
-
-            const vungNut = document.getElementById('vung-nut-tcn');
-            const inputNick = document.getElementById('tcn-input-nickname');
-            
+            const vungNut = document.getElementById('vung-nut-tcn'); const inputNick = document.getElementById('tcn-input-nickname');
             if(uid === taiKhoanHienTai.uid) {
-                inputNick.style.display = 'inline-block';
-                inputNick.value = targetUser.displayName;
-                vungNut.innerHTML = `<button style="background:var(--mau-chinh);color:white;" onclick="luuNickname()">Đổi biệt danh</button>
+                inputNick.style.display = 'inline-block'; inputNick.value = targetUser.displayName;
+                vungNut.innerHTML = `<button style="background:var(--mau-chinh);color:white;" onclick="luuNickname()">Đổi tên</button>
                                      <button style="background:#f02849;color:white;" onclick="auth.signOut();location.reload();">Đăng xuất</button>`;
             } else {
                 inputNick.style.display = 'none';
-                vungNut.innerHTML = `<button style="background:var(--mau-chinh);color:white;" onclick="dongModalTCN();chuyenPhong('${targetUser.uid}','${targetUser.displayName}','${targetUser.photoURL}')">Nhắn tin ngay</button>`;
+                vungNut.innerHTML = `<button style="background:var(--mau-chinh);color:white;" onclick="dongModalTCN();chuyenPhong('${targetUser.uid}','${targetUser.displayName}','${targetUser.photoURL}')">Nhắn tin</button>`;
             }
-
-            onValue(ref(db, 'feeds'), (snapshot) => {
-                const vPersonalFeeds = document.getElementById('vung-bai-dang-ca-nhan');
-                vPersonalFeeds.innerHTML = '';
-                const data = snapshot.val() || {};
-                let coBai = false;
-                Object.keys(data).reverse().forEach(k => {
-                    if(data[k].uid === uid) {
-                        vPersonalFeeds.insertAdjacentHTML('beforeend', taoHtmlBaiDang(k, data[k]));
-                        coBai = true;
-                    }
-                });
-                if(!coBai) vPersonalFeeds.innerHTML = '<p style="text-align:center;color:#65676B;font-size:0.95rem;padding:20px 0;">Chưa chia sẻ bài viết nào.</p>';
-            });
         };
-
         window.luuNickname = function() {
-            const name = document.getElementById('tcn-input-nickname').value.trim();
-            if(!name) return;
-            update(ref(db, 'users/' + taiKhoanHienTai.uid), { displayName: name }).then(() => {
-                document.getElementById('tcn-ten').innerText = name;
-                alert("Đã cập nhật biệt danh mới!");
-            });
+            const name = document.getElementById('tcn-input-nickname').value.trim(); if(!name) return;
+            update(ref(db, 'users/' + taiKhoanHienTai.uid), { displayName: name }).then(() => { document.getElementById('tcn-ten').innerText = name; alert("Đã đổi tên!"); });
         };
-
         window.dongModalTCN = function() { document.getElementById('modal-tcn').style.display = 'none'; };
     </script>
 </body>
