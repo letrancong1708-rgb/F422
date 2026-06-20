@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F4 2&2</title>
+    <title>Our Little World ❤️</title>
     <style>
         :root {
             --mau-chinh: #0084FF;
@@ -75,13 +75,17 @@
         .anh-xem-truoc-feed { max-height: 150px; border-radius: 8px; margin-top: 10px; display: none; }
 
         .danh-sach-bai-dang { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 550px; }
-        .bai-dang { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+        .bai-dang { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); position: relative; }
         .header-bai-dang { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
         .header-bai-dang img { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; }
         .ten-nguoi-dang-bai { font-weight: bold; font-size: 0.95rem; }
         .time-dang-bai { font-size: 0.75rem; color: var(--mau-chu-mo); }
         .text-bai-dang { font-size: 1rem; margin-bottom: 10px; white-space: pre-wrap; }
         .anh-bai-dang { width: 100%; border-radius: 8px; max-height: 400px; object-fit: cover; }
+        
+        /* Nút xóa bài viết */
+        .nut-xoa-bai { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #f02849; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: none; padding: 5px; border-radius: 4px; }
+        .nut-xoa-bai:hover { background: #ffebe6; }
 
         /* MODAL XEM TRANG CÁ NHÂN (TCN) */
         #modal-tcn { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
@@ -98,8 +102,8 @@
 <body>
 
     <div id="man-dang-nhap">
-        <h1>F4 2&2 </h1>
-        <p>hahahahahahahahahahaha</p>
+        <h1>Our Little World ❤️</h1>
+        <p>Không gian bí mật dành cho nhóm tụi mình</p>
         <button class="nut-google" id="nut-dang-nhap-gg">Đăng nhập bằng Google</button>
     </div>
 
@@ -164,7 +168,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { getDatabase, ref, push, set, onValue, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { getDatabase, ref, push, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
         const cấu_hình_firebase = {
             apiKey: "AIzaSyCofESjoK1EOmcSX4bJsJdGpqdoXOMECN8",
@@ -185,6 +189,9 @@
         window.idNguoiNhanHienTai = "nhom_chung";
         let mapThanhVien = {};
         let chuoiAnhBase64Feed = "";
+
+        // Gán biến auth vào global để nút Đăng xuất hoạt động
+        window.auth = auth;
 
         document.getElementById('nut-dang-nhap-gg').addEventListener('click', () => {
             signInWithPopup(auth, provider).catch(l => alert("Lỗi: " + l.message));
@@ -292,10 +299,16 @@
             chuoiAnhBase64Feed = "";
         };
 
-        function taoHtmlBaiDang(b) {
+        // Hàm tạo HTML bài đăng (Bổ sung nút Xóa bài và kiểm tra quyền sở hữu bài viết)
+        function taoHtmlBaiDang(idBai, b) {
             const u = mapThanhVien[b.uid] || { displayName: "Thành viên bí ẩn", photoURL: "https://via.placeholder.com/38" };
             const time = new Date(b.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(b.timestamp).toLocaleDateString();
-            return `<div class="bai-dang">
+            
+            // Nếu là bài viết của chính tài khoản đang đăng nhập thì cho hiện nút xóa
+            const hienThiNutXoa = (b.uid === taiKhoanHienTai.uid) ? 'style="display: block;"' : '';
+
+            return `<div class="bai-dang" id="post-${idBai}">
+                <button class="nut-xoa-bai" ${hienThiNutXoa} onclick="xoaBaiViet('${idBai}')">Xóa bài</button>
                 <div class="header-bai-dang">
                     <img src="${u.photoURL}" onclick="xemTCN('${b.uid}')">
                     <div><div class="ten-nguoi-dang-bai">${u.displayName}</div><div class="time-dang-bai">${time}</div></div>
@@ -305,13 +318,23 @@
             </div>`;
         }
 
+        // Hàm thực hiện xóa bài viết khỏi Firebase Database
+        window.xoaBaiViet = function(idBai) {
+            if(confirm("Bạn có chắc chắn muốn xóa bài viết này không?")) {
+                const baiVietRef = ref(db, 'feeds/' + idBai);
+                remove(baiVietRef).then(() => {
+                    alert("Đã xóa bài viết thành công!");
+                }).catch(l => alert("Lỗi xóa bài: " + l.message));
+            }
+        };
+
         function langNgheToanBoBaiDang() {
             onValue(ref(db, 'feeds'), (s) => {
                 const vf = document.getElementById('vung-danh-sach-bai-dang');
                 vf.innerHTML = '';
                 const data = s.val() || {};
                 Object.keys(data).reverse().forEach(k => {
-                    vf.insertAdjacentHTML('beforeend', taoHtmlBaiDang(data[k]));
+                    vf.insertAdjacentHTML('beforeend', taoHtmlBaiDang(k, data[k]));
                 });
             });
         }
@@ -349,7 +372,7 @@
                 let coBai = false;
                 Object.keys(data).reverse().forEach(k => {
                     if(data[k].uid === uid) {
-                        vPersonalFeeds.insertAdjacentHTML('beforeend', taoHtmlBaiDang(data[k]));
+                        vPersonalFeeds.insertAdjacentHTML('beforeend', taoHtmlBaiDang(k, data[k]));
                         coBai = true;
                     }
                 });
