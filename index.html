@@ -92,7 +92,12 @@
         .nut-chon-anh:hover { background: #f2f9f3; }
         .nut-dang { background: var(--mau-chinh); color: white; border: none; padding: 9px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 10px rgba(0,132,255,0.2); }
         .nut-dang:hover { background: var(--mau-chinh-hover); }
-        .anh-xem-truoc-feed { max-height: 180px; border-radius: 10px; margin-top: 12px; display: none; object-fit: cover; border: 1px solid var(--mau-vien); }
+        
+        /* Vùng xem trước ảnh có nút hủy */
+        .khung-xem-truoc-anh { position: relative; display: inline-block; margin-top: 12px; max-width: 200px; display: none; }
+        .anh-xem-truoc-feed { max-height: 180px; border-radius: 10px; object-fit: cover; border: 1px solid var(--mau-vien); width: 100%; }
+        .nut-huy-anh-preview { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .nut-huy-anh-preview:hover { background: rgba(0,0,0,0.8); }
 
         .danh-sach-bai-dang { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 580px; }
         .bai-dang { background: var(--mau-the); padding: 20px; border-radius: var(--bo-goc); box-shadow: var(--do-bong); position: relative; border: 1px solid rgba(0,0,0,0.01); transition: transform 0.2s; }
@@ -103,9 +108,10 @@
         .text-bai-dang { font-size: 1.05rem; line-height: 1.5; margin-bottom: 12px; color: var(--mau-chu); white-space: pre-wrap; }
         .anh-bai-dang { width: 100%; border-radius: 12px; max-height: 450px; object-fit: cover; border: 1px solid rgba(0,0,0,0.03); }
         
-        /* ICON NÚT XÓA BÀI XỊN */
+        /* ICON NÚT XÓA BÀI ĐĂNG */
         .nut-xoa-bai { position: absolute; top: 20px; right: 20px; background: transparent; border: none; color: #f02849; font-size: 1.1rem; cursor: pointer; display: none; padding: 6px; border-radius: 50%; transition: all 0.2s; width: 32px; height: 32px; align-items: center; justify-content: center; }
         .nut-xoa-bai:hover { background: #ffebe6; transform: scale(1.05); }
+        .bai-dang:hover .nut-xoa-bai { display: flex; }
 
         /* MODAL XEM TRANG CÁ NHÂN (TCN) */
         #modal-tcn { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 15px; }
@@ -170,7 +176,12 @@
                 <div id="tab-bang-tin">
                     <div class="khung-dang-bai">
                         <textarea id="text-bai-viet" placeholder="Bạn đang nghĩ gì thế?"></textarea>
-                        <img id="anh-feed-xem-truoc" class="anh-xem-truoc-feed">
+                        
+                        <div class="khung-xem-truoc-anh" id="vung-preview-feed">
+                            <button class="nut-huy-anh-preview" onclick="clearAnhDaChon()">✕</button>
+                            <img id="anh-feed-xem-truoc" class="anh-xem-truoc-feed">
+                        </div>
+
                         <div class="thanh-chuc-nang-dang">
                             <label for="file-anh-feed" class="nut-chon-anh">📷 Thêm hình ảnh</label>
                             <input type="file" id="file-anh-feed" accept="image/*" style="display:none;" onchange="xemTruocAnhFeed(event)">
@@ -315,19 +326,28 @@
             const r = new FileReader();
             r.onload = function(evt) {
                 chuoiAnhBase64Feed = evt.target.result;
-                const p = document.getElementById('anh-feed-xem-truoc');
-                p.src = chuoiAnhBase64Feed; p.style.display = 'block';
+                document.getElementById('anh-feed-xem-truoc').src = chuoiAnhBase64Feed;
+                document.getElementById('vung-preview-feed').style.display = 'inline-block';
             };
             r.readAsDataURL(f);
+        };
+
+        // Hàm xóa ảnh đã chọn khi bấm nút hủy preview
+        window.clearAnhDaChon = function() {
+            chuoiAnhBase64Feed = "";
+            document.getElementById('file-anh-feed').value = ""; // Reset file input quan trọng ở đây!
+            document.getElementById('vung-preview-feed').style.display = 'none';
         };
 
         window.dangBaiLenFeed = function() {
             const stt = document.getElementById('text-bai-viet').value.trim();
             if(!stt && !chuoiAnhBase64Feed) return alert("Vui lòng viết gì đó hoặc chọn ảnh!");
+            
             set(push(ref(db, 'feeds')), { uid: taiKhoanHienTai.uid, text: stt, img: chuoiAnhBase64Feed, timestamp: Date.now() });
+            
+            // Xóa nội dung cũ sau khi đăng thành công
             document.getElementById('text-bai-viet').value = '';
-            document.getElementById('anh-feed-xem-truoc').style.display = 'none';
-            chuoiAnhBase64Feed = "";
+            clearAnhDaChon(); // Reset hoàn toàn vùng chọn ảnh để đăng ảnh mới không bị kẹt
         };
 
         function taoHtmlBaiDang(idBai, b) {
