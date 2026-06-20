@@ -3,99 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Little World ❤️</title>
+    <title>Góc Nhỏ Bốn Người</title>
     <style>
         :root {
-            --primary-color: #ff4d6d;
-            --secondary-color: #fff0f3;
-            --text-color: #2b2d42;
-            --bg-color: #f8f9fa;
+            --mau-chinh: #007bff;
+            --mau-chinh-nhe: #e6f2ff;
+            --mau-chu: #333333;
+            --mau-nen: #f0f2f5;
+            --mau-the: #ffffff;
+            --mau-vien: #ced4da;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); display: flex; justify-content: center; min-height: 100vh; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--mau-nen); color: var(--mau-chu); min-height: 100vh; display: flex; flex-direction: column; }
         
-        .container { width: 100%; max-width: 600px; background: white; min-height: 100vh; display: flex; flex-direction: column; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
-        header { background: var(--primary-color); color: white; padding: 15px; text-align: center; font-size: 1.2rem; font-weight: bold; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        header button { background: rgba(255,255,255,0.2); border: none; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        /* Thanh điều hướng */
+        nav { background: white; border-bottom: 1px solid var(--mau-vien); position: sticky; top: 0; z-index: 100; height: 60px; }
+        .thanh-chinh { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 100%; padding: 0 20px; }
+        .ten-web { font-size: 1.3rem; font-weight: bold; color: var(--mau-chinh); text-decoration: none; }
+        .nut-dang-xuat { background: transparent; border: 1px solid #ccc; color: #555; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
+        .nut-dang-xuat:hover { background: #f0f0f0; }
 
-        /* Login Screen */
-        #login-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 20px; text-align: center; }
-        #login-screen h1 { color: var(--primary-color); margin-bottom: 10px; }
-        .btn-google { background: #4285F4; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 25px; cursor: pointer; margin-top: 20px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        /* Bố cục trang chủ */
+        .bo-cuc-chinh { max-width: 1000px; width: 100%; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr; gap: 20px; flex: 1; }
+        @media (min-width: 768px) {
+            .bo-cuc-chinh { grid-template-columns: 1.5fr 1fr; }
+        }
 
-        /* Main Screen */
-        #main-screen { display: none; flex-direction: column; flex: 1; }
-        .tabs { display: flex; background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 54px; z-index: 99; }
-        .tab { flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: bold; color: #666; transition: 0.3s; }
-        .tab.active { color: var(--primary-color); border-bottom: 3px solid var(--primary-color); background: var(--secondary-color); }
-        .content-section { display: none; padding: 15px; flex: 1; margin-bottom: 60px; }
-        .content-section.active { display: block; }
+        /* Khung nội dung chung */
+        .khung { background: var(--mau-the); border: 1px solid var(--mau-vien); border-radius: 8px; padding: 20px; height: fit-content; }
+        .tieu-de-khung { font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--mau-vien); color: var(--mau-chu); }
 
-        /* Post & Feed */
-        .post-form { background: var(--secondary-color); padding: 15px; border-radius: 10px; margin-bottom: 20px; }
-        .post-form textarea { width: 100%; height: 60px; border: 1px solid #ddd; border-radius: 5px; padding: 10px; resize: none; margin-bottom: 10px; }
-        .post-form input[type="text"] { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; }
-        .post-form button { background: var(--primary-color); color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        /* Màn hình đăng nhập */
+        #man-dang-nhap { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 40px 20px; text-align: center; background: white; max-width: 450px; margin: auto; border-radius: 12px; border: 1px solid var(--mau-vien); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        #man-dang-nhap h1 { color: var(--mau-chinh); margin-bottom: 10px; font-size: 1.8rem; }
+        #man-dang-nhap p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+        .nut-google { background: #4285F4; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 600; transition: 0.2s; }
+        .nut-google:hover { background: #357ae8; }
+
+        #man-chinh { display: none; flex-direction: column; flex: 1; }
+
+        /* Ô tạo bài viết & Bảng tin */
+        .o-dang-bai textarea { width: 100%; height: 80px; border: 1px solid var(--mau-vien); border-radius: 6px; padding: 12px; resize: none; margin-bottom: 10px; font-size: 0.95rem; outline: none; }
+        .o-dang-bai textarea:focus { border-color: var(--mau-chinh); }
+        .o-dang-bai input[type="text"] { width: 100%; padding: 10px; border: 1px solid var(--mau-vien); border-radius: 6px; margin-bottom: 12px; font-size: 0.9rem; outline: none; }
+        .o-dang-bai button { background: var(--mau-chinh); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.2s; }
+        .o-dang-bai button:hover { background: #0069d9; }
         
-        .feed-item { background: white; border: 1px solid #eee; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .feed-user { font-weight: bold; color: var(--primary-color); font-size: 0.9rem; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
-        .feed-user img { width: 25px; height: 25px; border-radius: 50%; }
-        .feed-time { font-size: 0.75rem; color: #999; font-weight: normal; margin-left: auto; }
-        .feed-text { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.4; }
-        .feed-img { width: 100%; border-radius: 8px; max-height: 300px; object-fit: cover; }
+        .danh-sach-tin { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .tin-tuc { background: white; border: 1px solid var(--mau-vien); padding: 20px; border-radius: 8px; }
+        .nguoi-dang { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .nguoi-dang img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #eee; }
+        .thong-tin-dang { display: flex; flex-direction: column; }
+        .ten-nguoi-dang { font-weight: bold; color: var(--mau-chu); font-size: 0.95rem; }
+        .thoi-gian-dang { font-size: 0.75rem; color: #888; margin-top: 2px; }
+        .noi-dung-chu { font-size: 1rem; line-height: 1.5; margin-bottom: 12px; white-space: pre-wrap; }
+        .anh-dinh-kem { width: 100%; border-radius: 6px; max-height: 400px; object-fit: cover; border: 1px solid var(--mau-vien); }
 
-        /* Chat */
-        .chat-container { display: flex; flex-direction: column; height: calc(100vh - 170px); }
-        .chat-messages { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 10px; }
-        .msg { max-width: 75%; padding: 10px; border-radius: 10px; font-size: 0.95rem; line-height: 1.4; position: relative; }
-        .msg.sent { background: var(--primary-color); color: white; align-self: flex-end; border-bottom-right-radius: 0; }
-        .msg.received { background: #e9ecef; color: var(--text-color); align-self: flex-start; border-bottom-left-radius: 0; }
-        .msg-user { font-size: 0.7rem; opacity: 0.8; margin-bottom: 3px; font-weight: bold; }
+        /* Khung Trò Chuyện */
+        .khung-chat { display: flex; flex-direction: column; height: 500px; }
+        .vung-tin-nhan { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--mau-vien); border-radius: 6px; margin-bottom: 10px; background: #fafafa; }
+        .tin-nhan { max-width: 80%; padding: 10px 14px; border-radius: 8px; font-size: 0.95rem; line-height: 1.4; display: flex; flex-direction: column; }
+        .tin-nhan.toi-gui { background: var(--mau-chinh); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .tin-nhan.nguoi-khac { background: #e9ecef; color: var(--mau-chu); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .ten-nguoi-gui { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; font-weight: bold; }
         
-        .chat-input-area { display: flex; padding: 10px; background: white; border-top: 1px solid #eee; position: fixed; bottom: 0; width: 100%; max-width: 600px; }
-        .chat-input-area input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; padding-right: 50px; }
-        .chat-input-area button { background: var(--primary-color); color: white; border: none; padding: 0 15px; border-radius: 20px; margin-left: 5px; cursor: pointer; font-weight: bold; }
+        .o-nhap-chat { display: flex; gap: 8px; }
+        .o-nhap-chat input { flex: 1; padding: 12px; border: 1px solid var(--mau-vien); border-radius: 6px; outline: none; font-size: 0.95rem; }
+        .o-nhap-chat input:focus { border-color: var(--mau-chinh); }
+        .o-nhap-chat button { background: var(--mau-chinh); color: white; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .o-nhap-chat button:hover { background: #0069d9; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div id="login-screen">
-            <h1>Our Little World ❤️</h1>
-            <p>Không gian bí mật cho 2 cặp đôi</p>
-            <button class="btn-google" id="btn-login">
-                <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#fff" d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.8 2.72v2.26h2.92c1.71-1.57 2.68-3.89 2.68-6.61z"/><path fill="#fff" d="M9 18c2.43 0 4.47-.8 5.96-2.19l-2.92-2.26c-.8.54-1.83.87-3.04.87-2.34 0-4.33-1.57-5.03-3.68H.95v2.33C2.43 15.98 5.46 18 9 18z"/><path fill="#fff" d="M3.97 10.74c-.18-.54-.28-1.12-.28-1.74s.1-1.2.28-1.74V4.93H.95C.35 6.13 0 7.52 0 9s.35 2.87.95 4.07l3.02-2.33z"/><path fill="#fff" d="M9 3.58c1.32 0 2.5.45 3.44 1.35L15 2.3C13.46.89 11.43 0 9 0 5.46 0 2.43 2.02.95 4.93l3.02 2.33c.7-2.11 2.69-3.68 5.03-3.68z"/></svg>
-                Đăng nhập bằng Google
-            </button>
-        </div>
+    <div id="man-dang-nhap">
+        <h1>Góc Nhỏ Bốn Người</h1>
+        <p>Không gian nội bộ dành riêng cho nhóm 4 thành viên</p>
+        <button class="nut-google" id="nut-dang-nhap-gg">
+            <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#fff" d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.8 2.72v2.26h2.92c1.71-1.57 2.68-3.89 2.68-6.61z"/><path fill="#fff" d="M9 18c2.43 0 4.47-.8 5.96-2.19l-2.92-2.26c-.8.54-1.83.87-3.04.87-2.34 0-4.33-1.57-5.03-3.68H.95v2.33C2.43 15.98 5.46 18 9 18z"/><path fill="#fff" d="M3.97 10.74c-.18-.54-.28-1.12-.28-1.74s.1-1.2.28-1.74V4.93H.95C.35 6.13 0 7.52 0 9s.35 2.87.95 4.07l3.02-2.33z"/><path fill="#fff" d="M9 3.58c1.32 0 2.5.45 3.44 1.35L15 2.3C13.46.89 11.43 0 9 0 5.46 0 2.43 2.02.95 4.93l3.02 2.33c.7-2.11 2.69-3.68 5.03-3.68z"/></svg>
+            Đăng nhập bằng Google
+        </button>
+    </div>
 
-        <div id="main-screen">
-            <header>
-                <span>Group 4 Người 💕</span>
-                <button id="btn-logout">Thoát</button>
-            </header>
-
-            <div class="tabs">
-                <div class="tab active" onclick="switchTab('feed')">Bảng tin</div>
-                <div class="tab" onclick="switchTab('chat')">Trò chuyện</div>
-            </div>
-
-            <div id="section-feed" class="content-section active">
-                <div class="post-form">
-                    <textarea id="post-text" placeholder="Hôm nay có gì vui không cả nhà..."></textarea>
-                    <input type="text" id="post-img" placeholder="Dán link ảnh vào đây (nếu có)...">
-                    <button id="btn-post">Đăng bài</button>
+    <div id="man-chinh">
+        <nav>
+            <div class="thanh-chinh">
+                <a href="#" class="ten-web">Góc Nhỏ Bốn Người</a>
+                <div>
+                    <button class="nut-dang-xuat" id="nut-thoat">Đăng xuất</button>
                 </div>
-                <div id="feed-container"></div>
+            </div>
+        </nav>
+
+        <div class="bo-cuc-chinh">
+            <div>
+                <div class="khung o-dang-bai">
+                    <div class="tieu-de-khung">Tạo bài viết mới</div>
+                    <textarea id="chu-bai-viet" placeholder="Chia sẻ thông tin hoặc trạng thái của bạn..."></textarea>
+                    <input type="text" id="anh-bai-viet" placeholder="Dán liên kết hình ảnh vào đây (nếu có)...">
+                    <button id="nut-dang-bai">Đăng lên bảng tin</button>
+                </div>
+
+                <div class="danh-sach-tin" id="vung-hien-thi-tin">
+                    </div>
             </div>
 
-            <div id="section-chat" class="content-section">
-                <div class="chat-container">
-                    <div class="chat-messages" id="chat-messages"></div>
-                    <div class="chat-input-area">
-                        <input type="text" id="chat-input" placeholder="Nhập tin nhắn..." onkeypress="if(event.key === 'Enter') sendChatMessage()">
-                        <button onclick="sendChatMessage()">Gửi</button>
+            <div>
+                <div class="khung khung-chat">
+                    <div class="tieu-de-khung">Trò chuyện chung</div>
+                    <div class="vung-tin-nhan" id="vung-tin-nhan">
+                        </div>
+                    <div class="o-nhap-chat">
+                        <input type="text" id="nhap-tin-nhan" placeholder="Nhập tin nhắn..." onkeypress="if(event.key === 'Enter') guiTinChat()">
+                        <button onclick="guiTinChat()">Gửi</button>
                     </div>
                 </div>
             </div>
@@ -107,8 +128,7 @@
         import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
         import { getDatabase, ref, push, set, get, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-        // Cấu hình Firebase
-        const firebaseConfig = {
+        const cấu_hình_firebase = {
             apiKey: "AIzaSyCofESjoK1EOmcSX4bJsJdGpqdoXOMECN8",
             authDomain: "f422-193b5.firebaseapp.com",
             projectId: "f422-193b5",
@@ -118,167 +138,136 @@
             measurementId: "G-SGJX93VN82"
         };
 
-        const app = initializeApp(firebaseConfig);
+        const app = initializeApp(cấu_hình_firebase);
         const auth = getAuth(app);
         const db = getDatabase(app);
         const provider = new GoogleAuthProvider();
 
-        let currentUser = null;
+        let taiKhoanHienTai = null;
 
-        // Xử lý nút Đăng nhập
-        document.getElementById('btn-login').addEventListener('click', () => {
-            signInWithPopup(auth, provider).catch(error => alert("Lỗi đăng nhập: " + error.message));
+        document.getElementById('nut-dang-nhap-gg').addEventListener('click', () => {
+            signInWithPopup(auth, provider).catch(loi => alert("Lỗi đăng nhập: " + loi.message));
         });
 
-        // Xử lý nút Đăng xuất
-        document.getElementById('btn-logout').addEventListener('click', () => {
+        document.getElementById('nut-thoat').addEventListener('click', () => {
             signOut(auth);
         });
 
-        // Theo dõi trạng thái Đăng nhập và Tự động Quản lý 4 thành viên
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                const userEmail = user.email;
-                const usersRef = ref(db, 'allowed_users');
+                const emailNguoiDung = user.email;
+                const nhanhThanhVien = ref(db, 'allowed_users');
                 
                 try {
-                    // Lấy danh sách thành viên hiện tại trên database
-                    const snapshot = await get(usersRef);
-                    let allowedUsers = snapshot.val() || {};
-                    let allowedEmails = Object.values(allowedUsers);
+                    const ketQua = await get(nhanhThanhVien);
+                    let danhSachThanhVien = ketQua.val() || {};
+                    let mangEmail = Object.values(danhSachThanhVien);
 
-                    // Nếu email này chưa có trong danh sách
-                    if (!allowedEmails.includes(userEmail)) {
-                        // Nếu danh sách vẫn chưa đủ 4 người -> Cho phép đăng ký vào chỗ trống
-                        if (allowedEmails.length < 4) {
-                            const newUserRef = push(usersRef);
-                            await set(newUserRef, userEmail);
-                            allowedEmails.push(userEmail); // Cập nhật tạm thời để kiểm tra tiếp bên dưới
+                    if (!mangEmail.includes(emailNguoiDung)) {
+                        if (mangEmail.length < 4) {
+                            const oMoi = push(nhanhThanhVien);
+                            await set(oMoi, emailNguoiDung);
+                            mangEmail.push(emailNguoiDung);
                         } else {
-                            // Nếu đã đủ 4 người rồi -> Từ chối đăng nhập công khai
-                            alert("Ứng dụng này đã đủ 4 người tham gia rồi! Bạn không thể vào.");
+                            alert("Nhóm đã đủ 4 người rồi! Bạn không thể vào.");
                             signOut(auth);
                             return;
                         }
                     }
 
-                    // Được phép truy cập thành công
-                    currentUser = user;
-                    document.getElementById('login-screen').style.display = 'none';
-                    document.getElementById('main-screen').style.display = 'flex';
-                    loadData();
+                    taiKhoanHienTai = user;
+                    document.getElementById('man-dang-nhap').style.display = 'none';
+                    document.getElementById('man-chinh').style.display = 'flex';
+                    taiDuLieu();
 
-                } catch (error) {
-                    console.error("Lỗi xác thực nhóm:", error);
+                } catch (loi) {
+                    console.error(loi);
                     signOut(auth);
                 }
             } else {
-                currentUser = null;
-                document.getElementById('login-screen').style.display = 'flex';
-                document.getElementById('main-screen').style.display = 'none';
+                taiKhoanHienTai = null;
+                document.getElementById('man-dang-nhap').style.display = 'flex';
+                document.getElementById('man-chinh').style.display = 'none';
             }
         });
 
-        // --- ĐĂNG BÀI VIẾT ---
-        document.getElementById('btn-post').addEventListener('click', () => {
-            const text = document.getElementById('post-text').value.trim();
-            const imgUrl = document.getElementById('post-img').value.trim();
+        document.getElementById('nut-dang-bai').addEventListener('click', () => {
+            const vanBan = document.getElementById('chu-bai-viet').value.trim();
+            const linkAnh = document.getElementById('anh-bai-viet').value.trim();
 
-            if (!text && !imgUrl) return alert("Vui lòng nhập nội dung hoặc dán link ảnh!");
+            if (!vanBan && !linkAnh) return alert("Vui lòng điền nội dung!");
 
-            const postsRef = ref(db, 'posts');
-            const newPostRef = push(postsRef);
-            set(newPostRef, {
-                uid: currentUser.uid,
-                userName: currentUser.displayName,
-                userPhoto: currentUser.photoURL,
-                text: text,
-                img: imgUrl,
+            const vungBaiViet = ref(db, 'posts');
+            const oBaiMoi = push(vungBaiViet);
+            set(oBaiMoi, {
+                uid: taiKhoanHienTai.uid,
+                userName: taiKhoanHienTai.displayName,
+                userPhoto: taiKhoanHienTai.photoURL,
+                text: vanBan,
+                img: linkAnh,
                 timestamp: Date.now()
             });
 
-            document.getElementById('post-text').value = '';
-            document.getElementById('post-img').value = '';
+            document.getElementById('chu-bai-viet').value = '';
+            document.getElementById('anh-bai-viet').value = '';
         });
 
-        // --- GỬI TIN NHẮN CHAT ---
-        window.sendChatMessage = function() {
-            const text = document.getElementById('chat-input').value.trim();
-            if (!text) return;
+        window.guiTinChat = function() {
+            const noiDung = document.getElementById('nhap-tin-nhan').value.trim();
+            if (!noiDung) return;
 
-            const chatsRef = ref(db, 'chats');
-            const newChatRef = push(chatsRef);
-            set(newChatRef, {
-                uid: currentUser.uid,
-                userName: currentUser.displayName,
-                text: text,
+            const vungChat = ref(db, 'chats');
+            const oChatMoi = push(vungChat);
+            set(oChatMoi, {
+                uid: taiKhoanHienTai.uid,
+                userName: taiKhoanHienTai.displayName,
+                text: noiDung,
                 timestamp: Date.now()
             });
 
-            document.getElementById('chat-input').value = '';
+            document.getElementById('nhap-tin-nhan').value = '';
         };
 
-        // --- TẢI DỮ LIỆU REALTIME ---
-        function loadData() {
-            document.getElementById('feed-container').innerHTML = '';
-            document.getElementById('chat-messages').innerHTML = '';
+        function taiDuLieu() {
+            document.getElementById('vung-hien-thi-tin').innerHTML = '';
+            document.getElementById('vung-tin-nhan').innerHTML = '';
 
-            // Lắng nghe bài viết mới
             onChildAdded(ref(db, 'posts'), (data) => {
                 const post = data.val();
-                const feedContainer = document.getElementById('feed-container');
-                const time = new Date(post.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " " + new Date(post.timestamp).toLocaleDateString();
-                let imgHtml = post.img ? `<img class="feed-img" src="${post.img}">` : '';
+                const oHienThiTin = document.getElementById('vung-hien-thi-tin');
+                const thoiGian = new Date(post.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " - " + new Date(post.timestamp).toLocaleDateString();
+                let HTMLAnh = post.img ? `<img class="anh-dinh-kem" src="${post.img}">` : '';
 
-                const postHtml = `
-                    <div class="feed-item">
-                        <div class="feed-user">
-                            <img src="${post.userPhoto || 'https://via.placeholder.com/30'}">
-                            <span>${post.userName}</span>
-                            <span class="feed-time">${time}</span>
+                const tinHtml = `
+                    <div class="tin-tuc">
+                        <div class="nguoi-dang">
+                            <img src="${post.userPhoto || 'https://via.placeholder.com/40'}">
+                            <div class="thong-tin-dang">
+                                <span class="ten-nguoi-dang">${post.userName}</span>
+                                <span class="thoi-gian-dang">${thoiGian}</span>
+                            </div>
                         </div>
-                        <div class="feed-text">${post.text}</div>
-                        ${imgHtml}
+                        <div class="noi-dung-chu">${post.text}</div>
+                        ${HTMLAnh}
                     </div>
                 `;
-                feedContainer.insertAdjacentHTML('afterbegin', postHtml);
+                oHienThiTin.insertAdjacentHTML('afterbegin', tinHtml);
             });
 
-            // Lắng nghe tin nhắn mới
-            const chatMessages = document.getElementById('chat-messages');
+            const vungTinNhan = document.getElementById('vung-tin-nhan');
             onChildAdded(ref(db, 'chats'), (data) => {
                 const chat = data.val();
-                const isMe = chat.uid === currentUser.uid;
+                const laToi = chat.uid === taiKhoanHienTai.uid;
                 
                 const chatHtml = `
-                    <div class="msg ${isMe ? 'sent' : 'received'}">
-                        <div class="msg-user">${isMe ? 'Bạn' : chat.userName}</div>
+                    <div class="tin-nhan ${laToi ? 'toi-gui' : 'nguoi-khac'}">
+                        <div class="ten-nguoi-gui">${laToi ? 'Bạn' : chat.userName}</div>
                         <div>${chat.text}</div>
                     </div>
                 `;
-                chatMessages.insertAdjacentHTML('beforeend', chatHtml);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+                vungTinNhan.insertAdjacentHTML('beforeend', chatHtml);
+                vungTinNhan.scrollTop = vungTinNhan.scrollHeight;
             });
-        }
-    </script>
-
-    <script>
-        // Chuyển đổi Tab (Bảng tin <-> Chat)
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-
-            if(tabName === 'feed') {
-                document.querySelectorAll('.tab')[0].classList.add('active');
-                document.getElementById('section-feed').classList.add('active');
-            } else {
-                document.querySelectorAll('.tab')[1].classList.add('active');
-                document.getElementById('section-chat').classList.add('active');
-                setTimeout(() => {
-                    const cm = document.getElementById('chat-messages');
-                    cm.scrollTop = cm.scrollHeight;
-                }, 100);
-            }
         }
     </script>
 </body>
